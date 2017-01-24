@@ -14,6 +14,7 @@
 		54C558981E36C3DB00484202 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54C558961E36C3DB00484202 /* LaunchScreen.storyboard */; };
 		54C558A31E36C3DB00484202 /* RoverpassDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C558A21E36C3DB00484202 /* RoverpassDemoTests.swift */; };
 		54C558AE1E36C3DB00484202 /* RoverpassDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C558AD1E36C3DB00484202 /* RoverpassDemoUITests.swift */; };
+		54F01E241E3806C200BD2CE5 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F01E231E3806C200BD2CE5 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		54C558A91E36C3DB00484202 /* RoverpassDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoverpassDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C558AD1E36C3DB00484202 /* RoverpassDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverpassDemoUITests.swift; sourceTree = "<group>"; };
 		54C558AF1E36C3DB00484202 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54F01E231E3806C200BD2CE5 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				54C5588D1E36C3DB00484202 /* AppDelegate.swift */,
 				54C5588F1E36C3DB00484202 /* ViewController.swift */,
+				54F01E231E3806C200BD2CE5 /* Environment.swift */,
 				54C558911E36C3DB00484202 /* Main.storyboard */,
 				54C558941E36C3DB00484202 /* Assets.xcassets */,
 				54C558961E36C3DB00484202 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54C558901E36C3DB00484202 /* ViewController.swift in Sources */,
+				54F01E241E3806C200BD2CE5 /* Environment.swift in Sources */,
 				54C5588E1E36C3DB00484202 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,10 +319,11 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		54C558B01E36C3DB00484202 /* Debug */ = {
+		54C558B01E36C3DB00484202 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_URL = "https://dev.roverpass.com";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -363,12 +368,13 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = Development;
 		};
-		54C558B11E36C3DB00484202 /* Release */ = {
+		54C558B11E36C3DB00484202 /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_URL = "https://www.roverpass.com";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -406,9 +412,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Production;
 		};
-		54C558B31E36C3DB00484202 /* Debug */ = {
+		54C558B31E36C3DB00484202 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -418,9 +424,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
-			name = Debug;
+			name = Development;
 		};
-		54C558B41E36C3DB00484202 /* Release */ = {
+		54C558B41E36C3DB00484202 /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -430,9 +436,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
-			name = Release;
+			name = Production;
 		};
-		54C558B61E36C3DB00484202 /* Debug */ = {
+		54C558B61E36C3DB00484202 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -444,9 +450,9 @@
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoverpassDemo.app/RoverpassDemo";
 			};
-			name = Debug;
+			name = Development;
 		};
-		54C558B71E36C3DB00484202 /* Release */ = {
+		54C558B71E36C3DB00484202 /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -458,9 +464,9 @@
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoverpassDemo.app/RoverpassDemo";
 			};
-			name = Release;
+			name = Production;
 		};
-		54C558B91E36C3DB00484202 /* Debug */ = {
+		54C558B91E36C3DB00484202 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -471,9 +477,9 @@
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = RoverpassDemo;
 			};
-			name = Debug;
+			name = Development;
 		};
-		54C558BA1E36C3DB00484202 /* Release */ = {
+		54C558BA1E36C3DB00484202 /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -484,7 +490,7 @@
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = RoverpassDemo;
 			};
-			name = Release;
+			name = Production;
 		};
 /* End XCBuildConfiguration section */
 
@@ -492,35 +498,38 @@
 		54C558851E36C3DA00484202 /* Build configuration list for PBXProject "RoverpassDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54C558B01E36C3DB00484202 /* Debug */,
-				54C558B11E36C3DB00484202 /* Release */,
+				54C558B01E36C3DB00484202 /* Development */,
+				54C558B11E36C3DB00484202 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Production;
 		};
 		54C558B21E36C3DB00484202 /* Build configuration list for PBXNativeTarget "RoverpassDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54C558B31E36C3DB00484202 /* Debug */,
-				54C558B41E36C3DB00484202 /* Release */,
+				54C558B31E36C3DB00484202 /* Development */,
+				54C558B41E36C3DB00484202 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Production;
 		};
 		54C558B51E36C3DB00484202 /* Build configuration list for PBXNativeTarget "RoverpassDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54C558B61E36C3DB00484202 /* Debug */,
-				54C558B71E36C3DB00484202 /* Release */,
+				54C558B61E36C3DB00484202 /* Development */,
+				54C558B71E36C3DB00484202 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Production;
 		};
 		54C558B81E36C3DB00484202 /* Build configuration list for PBXNativeTarget "RoverpassDemoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54C558B91E36C3DB00484202 /* Debug */,
-				54C558BA1E36C3DB00484202 /* Release */,
+				54C558B91E36C3DB00484202 /* Development */,
+				54C558BA1E36C3DB00484202 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Production;
 		};
 /* End XCConfigurationList section */
 	};
