@@ -7,6 +7,7 @@ target 'RoverpassDemo' do
   pod 'Alamofire', '~> 4.3'             # https://github.com/Alamofire/Alamofire
   pod 'SwiftyJSON'                      # https://github.com/SwiftyJSON/SwiftyJSON
   pod 'AlamofireObjectMapper', '~> 4.0' # https://github.com/tristanhimmelman/AlamofireObjectMapper
+  pod 'GooglePlaces'                    # https://developers.google.com/places/ios-api/start
 
   # Pods for RoverpassDemo
 

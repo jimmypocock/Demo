@@ -50,6 +50,14 @@ SOFTWARE.
 
 
 
+## GoogleMaps
+
+Copyright 2016 Google
+
+## GooglePlaces
+
+Copyright 2016 Google
+
 ## ObjectMapper
 
 The MIT License (MIT)
