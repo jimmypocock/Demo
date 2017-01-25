@@ -1,0 +1,6 @@
+framework module Pods_RoverpassDemoTests {
+  umbrella header "Pods-RoverpassDemoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
