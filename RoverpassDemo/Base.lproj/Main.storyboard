@@ -74,6 +74,24 @@
             </objects>
             <point key="canvasLocation" x="-26.399999999999999" y="173.16341829085459"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="fJD-mK-59r">
+            <objects>
+                <viewController id="e0D-q3-nCg" customClass="SearchViewController" customModule="RoverpassDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="amC-Gr-iwi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kpf-SU-qmO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LEB-b5-HQL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XnH-rr-n2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="913" y="173"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Roverpass Logo" width="400" height="87"/>
