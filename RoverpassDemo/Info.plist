@@ -26,6 +26,10 @@
 	<string>Main</string>
 	<key>API_URL</key>
 	<string>$(API_URL)</string>
+	<key>GOOGLE_PLACES_API_KEY</key>
+	<string>$(GOOGLE_PLACES_API_KEY)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>RoverPass needs your current location to find campgrounds near you.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

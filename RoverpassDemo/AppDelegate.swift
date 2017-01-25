@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import GooglePlaces
 
 @UIApplicationMain
@@ -14,12 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let googlePlacesApiKey = Bundle.main.infoDictionary!["GOOGLE_PLACES_API_KEY"] as! String
-        GMSPlacesClient.provideAPIKey("googlePlacesApiKey")
+        // MARK: Google Maps Api Key
+        if let googlePlacesApiKey = Bundle.main.infoDictionary!["GOOGLE_PLACES_API_KEY"] as? String {
+            GMSPlacesClient.provideAPIKey(googlePlacesApiKey)
+        } else {
+            print("Could not found Google API Key.")
+        }
+
         return true
     }
 

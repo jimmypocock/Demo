@@ -58,6 +58,28 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vk9-FL-Pdl">
+                                <rect key="frame" x="145" y="323" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="addressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OK-Bo-m8Q">
+                                <rect key="frame" x="136" y="352" width="103" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYE-8C-8ua">
+                                <rect key="frame" x="131" y="381" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="getCurrentPlace"/>
+                                <connections>
+                                    <action selector="getCurrentPlace:" destination="Tke-KL-9nr" eventType="touchUpInside" id="ExH-09-dPr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -74,6 +96,10 @@
                             <constraint firstItem="M8R-9p-sU6" firstAttribute="top" secondItem="fnr-9A-wvZ" secondAttribute="bottom" constant="8" id="y5u-YJ-9Y1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="4OK-Bo-m8Q" id="dxj-1y-ISS"/>
+                        <outlet property="nameLabel" destination="vk9-FL-Pdl" id="iBn-yM-772"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nad-JQ-nym" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
