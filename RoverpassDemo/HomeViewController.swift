@@ -10,18 +10,41 @@ import CoreLocation
 import GooglePlaces
 
 // MARK: TODO: Finish campgroundsNearMe functionality by sending to campground list page with search query.
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController {
 
     var placesClient: GMSPlacesClient!
     var locationManager = CLLocationManager()
 
+    var resultsViewController: GMSAutocompleteResultsViewController?
+    var searchController: UISearchController?
+    var resultView: UITextView?
+
     // Add a pair of UILabels in Interface Builder, and connect the outlets to these variables.
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var campgroundsNearMeButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         placesClient = GMSPlacesClient.shared()
+
+        super.viewDidLoad()
+
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController
+        searchController?.becomeFirstResponder()
+
+        let subView = UIView(frame: CGRect(x: 0, y: (campgroundsNearMeButton.frame.maxY + 22), width: view.frame.width, height: 45.0))
+
+        subView.addSubview((searchController?.searchBar)!)
+        view.addSubview(subView)
+        searchController?.searchBar.sizeToFit()
+        searchController?.hidesNavigationBarDuringPresentation = false
+
+        // When UISearchController presents the results view, present it in
+        // this view controller, not one further up the chain.
+        definesPresentationContext = true
     }
 
     // Add a UIButton in Interface Builder, and connect the action to this function.
@@ -36,20 +59,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 return
             }
 
-            self.nameLabel.text = "No current place"
-            self.addressLabel.text = ""
-
             if let placeLikelihoodList = placeLikelihoodList {
                 let place = placeLikelihoodList.likelihoods.first?.place
                 if let place = place {
-                    self.nameLabel.text = place.name
-                    self.addressLabel.text = place.formattedAddress?.components(separatedBy: ", ")
-                        .joined(separator: "\n")
+                    print(place.name)
+                    print(place.formattedAddress?.components(separatedBy: ", ").joined(separator: "\n") ?? "no address found")
                 }
             }
         })
     }
+}
 
+extension HomeViewController: CLLocationManagerDelegate {
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             locationManager.delegate = self
@@ -59,6 +80,33 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+    }
+}
+
+// Handle the user's selection.
+extension HomeViewController: GMSAutocompleteResultsViewControllerDelegate {
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
+                           didAutocompleteWith place: GMSPlace) {
+        searchController?.isActive = false
+        // Do something with the selected place.
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+    }
+
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
+                           didFailAutocompleteWithError error: Error){
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+
+    func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
 
