@@ -1,3 +1,4 @@
+
 //
 //  SearchViewController.swift
 //  RoverpassDemo
@@ -7,80 +8,27 @@
 //
 
 import UIKit
-import Alamofire
+import GooglePlaces
 
-// MARK: Look up: UISearchContainerViewController
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITextFieldDelegate {
 
-    var campgrounds: Alamofire.Request? {
-        didSet {
-            print("\(campgrounds)")
-        }
+    @IBOutlet var searchField: UITextField!
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        // Show what the user types in after each new text field change
+        print(searchField.text!)
+
+        return true
     }
 
-    @IBAction func buttonClicked(_ sender: UIButton) {
-        campgrounds = searchForCampgrounds("austin texas")
-        //        let results = searchForCampgrounds("austin texas"completionHandler: , completionHandler: {
-        //            print(self ?? [])
-        //        })
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-        //        searchForCampgrounds("austin texas") { campgrounds in
-        ////            completion(campgrounds, [Campground]())
-        //        }
+        // Access UITextFieldDelegate functions
+        searchField.delegate = self
 
+        // Autofocus to search field when view loads
+        searchField.becomeFirstResponder()
     }
-
-    func searchForCampgrounds(_ query: String) -> Request? {
-        let route = API.campgroundSearchURL(query)
-        return Alamofire.request(route, method: .get)
-            .validate()
-            .responseJSON { response in
-                guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms: \(response.result.error)")
-                    return
-                }
-
-                guard ((response.result.value as? NSArray) != nil) else {
-                    print("Malformed data received from searchForCampgrounds service")
-                    return
-                }
-        }
-    }
-
-//    func searchForCampgrounds(completion: @escaping ([Campground]?) -> Void) {
-//        let route = API.campgroundSearchURL("austin texas")
-//        Alamofire.request(route, method: .get)
-//        .validate()
-//        .responseJSON { response in
-//            print(response)
-//        }
-//    }
-
-//    func fetchAllRooms(completion: @escaping ([Campground]?) -> Void) {
-//        Alamofire.request(
-//            URL(string: "http://localhost:5984/rooms/_all_docs")!,
-//            method: .get,
-//            parameters: ["include_docs": "true"])
-//            .validate()
-//            .responseJSON { (response) -> Void in
-//                guard response.result.isSuccess else {
-//                    print("Error while fetching remote rooms: \(response.result.error)")
-//                    completion(nil)
-//                    return
-//                }
-//
-//                guard let value = response.result.value as? [String: Any],
-//                    let rows = value["rows"] as? [[String: Any]] else {
-//                        print("Malformed data received from fetchAllRooms service")
-//                        completion(nil)
-//                        return
-//                }
-//                
-//                let rooms = rows.flatMap({ (roomDict) -> RemoteRoom? in
-//                    return RemoteRoom(jsonData: roomDict)
-//                })
-//                
-//                completion(rooms)
-//        }
-//    }
 }

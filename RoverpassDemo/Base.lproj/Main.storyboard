@@ -181,6 +181,9 @@
                             <constraint firstItem="FQ9-AO-rbc" firstAttribute="leading" secondItem="O0K-Hs-Kwd" secondAttribute="leadingMargin" id="zCR-RW-OSB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchField" destination="FQ9-AO-rbc" id="3Iq-pV-jbA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyF-1o-qKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
