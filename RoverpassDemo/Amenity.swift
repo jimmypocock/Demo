@@ -12,8 +12,8 @@ class Amenity: NSObject {
 
     var name: String!
 
-    init(name: String) {
-        self.name = name
+    init(jsonData: [String: Any]) {
+        self.name = jsonData["name"] as! String!
 
         super.init()
     }

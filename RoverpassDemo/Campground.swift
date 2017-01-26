@@ -12,9 +12,8 @@ class Campground: NSObject {
 
     var name: String!
 
-    // Designated Initializer
-    init(name: String) {
-        self.name = name
+    init(jsonData: [String: Any]) {
+        self.name = jsonData["name"] as! String!
 
         super.init()
     }
