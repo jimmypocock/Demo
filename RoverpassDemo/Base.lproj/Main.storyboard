@@ -103,7 +103,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="7TE-Bp-buS" id="mnY-cw-7Uw"/>
-                                    <segue destination="x9g-RW-LAW" kind="show" identifier="campgroundSegue" id="Bid-MN-slp"/>
+                                    <segue destination="2tg-XO-Kco" kind="show" identifier="campgroundSegue" id="KTz-9V-oGa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -116,7 +116,7 @@
                     <navigationItem key="navigationItem" id="iGj-Hu-4M4">
                         <barButtonItem key="leftBarButtonItem" title="Reset" id="ZiL-wo-Fim">
                             <connections>
-                                <segue destination="Tke-KL-9nr" kind="show" id="vc9-c4-0wv"/>
+                                <segue destination="Tke-KL-9nr" kind="show" identifier="homeSegue" id="vc9-c4-0wv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -127,38 +127,34 @@
             <point key="canvasLocation" x="1114" y="173"/>
         </scene>
         <!--Campground View Controller-->
-        <scene sceneID="mrV-JN-fAX">
+        <scene sceneID="mSN-r9-yUA">
             <objects>
-                <viewController id="x9g-RW-LAW" customClass="CampgroundViewController" customModule="RoverpassDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2tg-XO-Kco" customClass="CampgroundViewController" customModule="RoverpassDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ncu-B3-JMQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="eBI-tM-l7m"/>
+                        <viewControllerLayoutGuide type="top" id="1Bl-US-bVS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ooc-dR-QMD"/>
                     </layoutGuides>
-                    <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="2eQ-WE-LxZ">
+                    <view key="view" contentMode="scaleToFill" id="nQu-Rc-ipB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campground Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riI-OQ-7Ne">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Campground Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1W-lE-fcq">
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="riI-OQ-7Ne" firstAttribute="top" secondItem="2eQ-WE-LxZ" secondAttribute="top" id="0i3-PS-yeH"/>
-                            <constraint firstAttribute="bottom" secondItem="riI-OQ-7Ne" secondAttribute="bottom" id="44B-wG-ZHe"/>
-                            <constraint firstItem="riI-OQ-7Ne" firstAttribute="leading" secondItem="2eQ-WE-LxZ" secondAttribute="leading" id="EI5-HV-oV1"/>
-                            <constraint firstAttribute="trailing" secondItem="riI-OQ-7Ne" secondAttribute="trailing" id="UaQ-QT-KTb"/>
-                        </constraints>
-                    </stackView>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <connections>
-                        <outlet property="campgroundNameLabel" destination="riI-OQ-7Ne" id="hKl-Fm-pYI"/>
+                        <outlet property="nameLabel" destination="g1W-lE-fcq" id="UZ4-Ic-rbs"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UXZ-Fk-Wde" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oih-J1-DP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="172"/>
+            <point key="canvasLocation" x="1936.8" y="171.36431784107947"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LdT-cq-O6e">

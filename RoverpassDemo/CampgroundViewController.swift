@@ -17,8 +17,8 @@ import UIKit
 
 class CampgroundViewController: UIViewController {
 
-    @IBOutlet var campgroundNameLabel: UILabel!
-
+    @IBOutlet var nameLabel: UILabel!
+    
     var campground: Campground! {
         didSet {
             navigationItem.title = campground.name
@@ -28,6 +28,6 @@ class CampgroundViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        campgroundNameLabel.text = campground.name
+        nameLabel.text = campground.name
     }
 }

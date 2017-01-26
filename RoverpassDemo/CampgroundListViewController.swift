@@ -12,12 +12,7 @@ import Alamofire
 class CampgroundListViewController: UITableViewController {
 
     var query: String?
-    var campgroundStore = CampgroundStore() // {
-//        didSet {
-//            print("RESPONSE: \(campgroundStore.campgrounds.count) campgrounds received.")
-//            self.tableView.reloadData()
-//        }
-//    }
+    var campgroundStore = CampgroundStore()
 
     func addCampgroundToTable(_ campground: Campground) {
         // Figure out where that item is in the array
@@ -41,7 +36,6 @@ class CampgroundListViewController: UITableViewController {
                     let newCampground = self.campgroundStore.addCampground(campground)
                     self.addCampgroundToTable(newCampground)
                 }
-
             } else {
                 print("API Response was nil. Could not retrieve campgrounds.")
             }
@@ -75,6 +69,7 @@ class CampgroundListViewController: UITableViewController {
                 let campgroundViewController = segue.destination as! CampgroundViewController
                 campgroundViewController.campground = campground
             }
+        case "homeSegue"?: break
         default:
             preconditionFailure("Unexpected segue identifier.")
         }
@@ -107,11 +102,6 @@ extension CampgroundListViewController {
                     completion(nil)
                     return
                 }
-
-                // MARK: TODO: Map response to be array of Campground objects: [Campground]
-//                let campgrounds = value.flatMap({ (campground) -> Campground? in
-//                    return Campground(name: campground[ as! String)
-//                })
 
                 completion(value)
         }
