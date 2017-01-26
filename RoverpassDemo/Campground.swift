@@ -7,34 +7,15 @@
 //
 
 import Foundation
-import ObjectMapper
-import AlamofireObjectMapper
 
-class Campground: Mappable {
+class Campground: NSObject {
 
     var name: String!
-    var slug: String!
-    var bio: String?
-    var city: String?
-    var state: String?
-    var latitude: Double?
-    var longitude: Double?
-//    var amenities: [Amenity]
 
+    // Designated Initializer
+    init(name: String) {
+        self.name = name
 
-    required init?(map: Map) {
-        // MARK: Handle Amenity object creation.
-    }
-
-    // Mappable
-    func mapping(map: Map) {
-        name        <- map["name"]
-        slug        <- map["age"]
-        bio         <- map["bio"]
-        city        <- map["city_name"]
-        state       <- map["state_name"]
-        latitude    <- map["latitude"]
-        longitude   <- map["longitude"]
-//        amenities   <- map["amenities"]
+        super.init()
     }
 }

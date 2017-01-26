@@ -7,17 +7,14 @@
 //
 
 import Foundation
-import ObjectMapper
-import AlamofireObjectMapper
 
-class Amenity: Mappable {
+class Amenity: NSObject {
 
     var name: String!
 
-    required init?(map: Map) {}
+    init(name: String) {
+        self.name = name
 
-    // Mappable
-    func mapping(map: Map) {
-        name        <- map["name"]
+        super.init()
     }
 }
