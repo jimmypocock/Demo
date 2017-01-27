@@ -18,7 +18,8 @@ import UIKit
 class CampgroundViewController: UIViewController {
 
     @IBOutlet var nameLabel: UILabel!
-    
+    @IBOutlet var pictureView: UIImageView!
+
     var campground: Campground! {
         didSet {
             navigationItem.title = campground.name
@@ -29,5 +30,16 @@ class CampgroundViewController: UIViewController {
         super.viewWillAppear(animated)
 
         nameLabel.text = campground.name
+        PictureStore.fetchImage(for: campground.picture) {
+            (imageResult) -> Void in
+            switch imageResult {
+            case let .success(image):
+                OperationQueue.main.addOperation {
+                    self.pictureView.image = image
+                }
+            case let .failure(error):
+                print("Error downloading image: \(error)")
+            }
+        }
     }
 }

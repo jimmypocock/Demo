@@ -10,12 +10,14 @@ import UIKit
 
 class CampgroundCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var pictureView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         nameLabel.adjustsFontForContentSizeCategory = true
     }
+
 }
 

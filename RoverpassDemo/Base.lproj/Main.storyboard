@@ -80,29 +80,46 @@
         <scene sceneID="ynS-bU-iZJ">
             <objects>
                 <tableViewController id="K4K-Ro-ENo" customClass="CampgroundListViewController" customModule="RoverpassDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sCL-oc-egG">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="sCL-oc-egG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampgroundCell" textLabel="7TE-Bp-buS" style="IBUITableViewCellStyleDefault" id="eZs-dQ-KSb" customClass="CampgroundCell" customModule="RoverpassDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampgroundCell" rowHeight="150" id="eZs-dQ-KSb" customClass="CampgroundCell" customModule="RoverpassDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eZs-dQ-KSb" id="6Yu-qa-u8r">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7TE-Bp-buS">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DUN-gn-nem">
+                                            <rect key="frame" x="8" y="8" width="128" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="128" id="3fi-E3-xfG"/>
+                                                <constraint firstAttribute="height" constant="128" id="5DJ-qK-Ud5"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Red-ZL-uTQ">
+                                            <rect key="frame" x="144" y="8" width="223" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="uQq-sQ-fRP"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="DUN-gn-nem" firstAttribute="top" secondItem="6Yu-qa-u8r" secondAttribute="topMargin" id="2xE-tI-VHU"/>
+                                        <constraint firstItem="Red-ZL-uTQ" firstAttribute="top" secondItem="6Yu-qa-u8r" secondAttribute="topMargin" id="JQr-NZ-Cus"/>
+                                        <constraint firstItem="Red-ZL-uTQ" firstAttribute="trailing" secondItem="6Yu-qa-u8r" secondAttribute="trailingMargin" id="K8j-xu-E7z"/>
+                                        <constraint firstItem="DUN-gn-nem" firstAttribute="leading" secondItem="6Yu-qa-u8r" secondAttribute="leadingMargin" id="SZ8-uc-th0"/>
+                                        <constraint firstItem="Red-ZL-uTQ" firstAttribute="leading" secondItem="DUN-gn-nem" secondAttribute="trailing" constant="8" id="hkz-Zw-wUX"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="7TE-Bp-buS" id="mnY-cw-7Uw"/>
+                                    <outlet property="nameLabel" destination="Red-ZL-uTQ" id="W0P-BV-iqb"/>
+                                    <outlet property="pictureView" destination="DUN-gn-nem" id="yLX-Xb-rnF"/>
                                     <segue destination="2tg-XO-Kco" kind="show" identifier="campgroundSegue" id="KTz-9V-oGa"/>
                                 </connections>
                             </tableViewCell>
@@ -124,7 +141,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYY-Hi-ksX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="173"/>
+            <point key="canvasLocation" x="1112.8" y="172.26386806596702"/>
         </scene>
         <!--Campground View Controller-->
         <scene sceneID="mSN-r9-yUA">
@@ -138,18 +155,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Campground Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1W-lE-fcq">
-                                <rect key="frame" x="16" y="72" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GsZ-C2-ISa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="5ls-s3-XSC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campground Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1W-lE-fcq">
+                                <rect key="frame" x="16" y="272" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eLl-Um-hIA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GsZ-C2-ISa" firstAttribute="centerX" secondItem="g1W-lE-fcq" secondAttribute="centerX" id="A3R-y0-Fsd"/>
+                            <constraint firstItem="GsZ-C2-ISa" firstAttribute="top" secondItem="1Bl-US-bVS" secondAttribute="bottom" id="DDT-C5-cra"/>
+                            <constraint firstItem="g1W-lE-fcq" firstAttribute="leading" secondItem="nQu-Rc-ipB" secondAttribute="leadingMargin" id="bSl-W8-iFl"/>
+                            <constraint firstItem="g1W-lE-fcq" firstAttribute="trailing" secondItem="nQu-Rc-ipB" secondAttribute="trailingMargin" id="cW5-JX-TI4"/>
+                            <constraint firstItem="GsZ-C2-ISa" firstAttribute="leading" secondItem="nQu-Rc-ipB" secondAttribute="leading" id="ceY-X7-I8y"/>
+                            <constraint firstItem="g1W-lE-fcq" firstAttribute="top" secondItem="GsZ-C2-ISa" secondAttribute="bottom" constant="8" id="dW0-GE-pqZ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="g1W-lE-fcq" id="UZ4-Ic-rbs"/>
+                        <outlet property="pictureView" destination="GsZ-C2-ISa" id="gI8-dX-HQf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oih-J1-DP1" userLabel="First Responder" sceneMemberID="firstResponder"/>

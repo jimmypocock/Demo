@@ -53,6 +53,19 @@ class CampgroundListViewController: UITableViewController {
         let campground = campgroundStore.campgrounds[indexPath.row]
         cell.nameLabel.text = campground.name
 
+        // MARK: Fetch Image from campground picture
+        PictureStore.fetchImage(for: campground.picture) {
+            (imageResult) -> Void in
+            switch imageResult {
+            case let .success(image):
+                OperationQueue.main.addOperation {
+                    cell.pictureView.image = image
+                }
+            case let .failure(error):
+                print("Error downloading image: \(error)")
+            }
+        }
+
         return cell
     }
 
